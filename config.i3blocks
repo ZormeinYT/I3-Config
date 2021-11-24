@@ -45,7 +45,7 @@ color=#ff1493
 [time]
 label=
 command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
+interval=1
 color=#ff1493
 
 

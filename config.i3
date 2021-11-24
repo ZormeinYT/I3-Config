@@ -45,7 +45,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -115,7 +115,7 @@ set $ws2 "2: Terminals "
 set $ws3 "3: Gaming "
 set $ws4 "4: Files "
 set $ws5 "5: Chat "
-set $ws6 "6: Other "
+set $ws6 "6: Graphic "
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -147,9 +147,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # assign application to workspace
 assign [class="firefox"] $ws1
-assign [class="Terminator"] $ws2
+assign [class="URxvt"] $ws2
 assign [class="heroic"] $ws3
 assign [class="Thunar"] $ws4
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -194,9 +195,9 @@ set $urgent-bg-color     #E53935
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #ff1493
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #ff1493
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #ff1493
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #ff1493
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  #ff1493
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #ff1493
+client.urgent           $urgent-bg-color    $urgent-bg-color   #ffffff              #ff1493
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -212,11 +213,19 @@ bar {
 	}
 	font pango:Poppins 13
 }
+exec_always picom
+exec_always --no-startup-id /usr/lib/kdeconnectd
 exec_always xinput set-prop 'Logitech G102 Prodigy Gaming Mouse' 'libinput Accel Speed' -1
 exec_always feh --bg-scale /mnt/HDD/Pictures/Cool-PC-Background.jpg
 exec firefox
-exec terminator
+exec urxvt
 exec heroic
 exec thunar
 
+# I3-GAPS:
+
+gaps inner 10
+for_window [class=".*"] border pixel 0
+
+# CUSTOM KEYBINDINGS
 bindsym $mod+Shift+w exec i3lock
