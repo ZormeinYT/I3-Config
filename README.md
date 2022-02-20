@@ -4,4 +4,5 @@ Requierments:
 You need i3block-contrib
 Packages you need for battery, memory and etc. to work: acpi
 
-Note: you might have to change the config names both to 'config'
+Note: You have to change the config names both to 'config' and then copy them to their respective folders.
+      Also make sure your i3blocks folder is called "i3blocks"
