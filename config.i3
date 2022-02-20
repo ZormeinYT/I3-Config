@@ -51,7 +51,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -115,7 +115,7 @@ set $ws2 "2: Terminals "
 set $ws3 "3: Gaming "
 set $ws4 "4: Files "
 set $ws5 "5: Chat "
-set $ws6 "6: Graphic "
+set $ws6 "6: Virtual "
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -207,7 +207,7 @@ bar {
 		background #ffffff
 	    	separator #757575
 		#                  border             background         text
-		focused_workspace  #ffffff            #ffffff            #ff1493
+		focused_workspace  #ffffff            #ffffff            #0000ff
 		inactive_workspace #ffffff            #ffffff            #000000
 		urgent_workspace   #ff0000            #ff0000            #ffffff
 	}
@@ -216,7 +216,7 @@ bar {
 exec_always picom
 exec_always --no-startup-id /usr/lib/kdeconnectd
 exec_always xinput set-prop 'Logitech G102 Prodigy Gaming Mouse' 'libinput Accel Speed' -1
-exec_always feh --bg-scale /mnt/HDD/Pictures/Cool-PC-Background.jpg
+exec_always feh --bg-scale /home/valter/Pictures/4K-Wallpaper.jpg
 exec firefox
 exec urxvt
 exec heroic
